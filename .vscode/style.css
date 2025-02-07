@@ -1,0 +1,168 @@
+* {
+  /*Reseta a margem e o padding padrão do navegador:*/
+  margin: 0;
+  padding: 0;
+  /*A medida da borda da caixa é medida a partir da borda, para que que o width da casa de 360px funcione o tamanho certo*/
+  box-sizing: border-box;
+}
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  /*cor da margem de cada item do menu*/
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  /*cor de fundo de cada item do menu*/
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg); - Adiciona a imagem de fundo
+  background-repeat: no-repeat; - Não repete a imagem
+  background-position: top center; - Centraliza a imagem em cima
+  background-size: cover; - Preenche a imagem na tela inteira
+  AGUPAMENTO DO CÓDIGO:
+  */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  /*Inclui a fonte e a cor*/
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  width: 360px;
+  /* É medido os lado da caixa igual a um relógio, em cima, direita, em baixo e esquerda, e quando só tem 3 medidas, as medidas do lado são a do meio*/
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+#profile {
+  /*Criado um 'pai'para incluir o alinhameto, pois a div do profile é inline e com isso não é possível incluir o margin auto*/
+  text-align: center;
+  /* Preenchimeto interno */
+  padding: 24px;
+}
+
+#profile img {
+  /*Largura:*/
+  width: 112px;
+}
+
+#profile p {
+  /*Tamanho do negrito:*/
+  font-weight: 500;
+  /*Altura da linha*/
+  line-height: 24px;
+  margin-top: 8px;
+}
+#switch {
+  /*faz a posico do absolute ser relativa a essa caixa*/
+  position: relative;
+  /*incluido a mesma do span para deixar alinhado*/
+  width: 64px;
+  margin: 4px auto;
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  /*coloca -50 para cima*/
+  transform: translateY(-50%);
+}
+.light #switch button {
+  right: 0;
+  left: initial;
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+/* Links */
+ul {
+  /*remove a bolinha dos itens da lista*/
+  list-style: none;
+  display: flex;
+  /*deixa cada item da lista em baixo do outo*/
+  flex-direction: column;
+  /*coloca espaco entre os elementos*/
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  display: flex;
+  /*alinha noe meio com a largura e altura*/
+  align-items: center;
+  /*alinha centralizado com espacamento*/
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  /*arredondamento de borda*/
+  border-radius: 8px;
+  /*deixa um leve embacado*/
+  backdrop-filter: blur(4px);
+  /*aplicado pois alguns navegadores nao tem essa versao que funcione*/
+  -webkit-backdrop-filter: blur(4px);
+  /*para deixar sem sublinhado o texto*/
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.02s;
+}
+/*pseudo-selector / nele é para alterar as coisas quando passa o mouse por cima*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+#social-links {
+  /*incluido para usar o gap*/
+  display: flex;
+  /*24 emcima e baixo e 0 laterais*/
+  padding: 24px 0;
+  /*altera o tamanho dos icones*/
+  font-size: 24px;
+  justify-content: center;
+}
+#social-links a {
+  /*criado para alinha a borda ao meio*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  /*transicao de backgrund*/
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
