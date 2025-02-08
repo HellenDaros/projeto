@@ -43,7 +43,9 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  /*largura maxima*/
+  max-width: 588px;
   /* É medido os lado da caixa igual a um relógio, em cima, direita, em baixo e esquerda, e quando só tem 3 medidas, as medidas do lado são a do meio*/
   margin: 56px auto 0px;
   padding: 0 24px;
