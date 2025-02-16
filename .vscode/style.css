@@ -99,7 +99,7 @@ body * {
   right: 0;
   left: initial;*/
 }
-#switch button:hover{
+#switch button:hover {
   outline: 8px solid var(--highlight-color);
 }
 #switch span {
@@ -177,31 +177,30 @@ footer {
   font-size: 14px;
 }
 /*media queries / só funciona se tiver o viewport no html*/
-@media (min-width:700px){
+@media (min-width: 700px) {
   :root {
     --bg-url: url(./assets/bg-desktop.jpg);
   }
-  .light{
+  .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
 /*animation*/
 @keyframes slide-in {
   /*onde comeca*/
-  from{
-  left: 0;
+  from {
+    left: 0;
   }
   /*ond termina*/
   to {
     left: 50%;
   }
 }
-@keyframes slide-back{
-  from{
+@keyframes slide-back {
+  from {
     left: 50%;
   }
-  to{
+  to {
     left: 0;
   }
-
 }
